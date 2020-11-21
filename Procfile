@@ -1,1 +1,1 @@
-gunicorn --worker-tmp-dir /dev/shm simpool:app.
+web: python app.py
