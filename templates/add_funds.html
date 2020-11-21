@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header">
+    <h6 class = "logged-in">Welcome Back, {{username}}</h6>
+    <h6 class = "logged-in">Balance: ${{balance}}</h6>
+    <br>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
+    <br>
+    <br>
+</header>
+<br>
+
+<h1 class = "contests_header">Choose Amount To Add</h1>
+<br>
+<div class="card mx-auto" style= "width: 30vw;">
+<a class="clickme" href="/addfunds/10">$10</a>
+<br>
+<a class="clickme" href="/addfunds/20">$20</a>
+<br>
+<a class="clickme" href="/addfunds/50">$50</a>
+</div>
+{% endblock %}

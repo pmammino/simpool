@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header">
+    <h6 class = "logged-in">Welcome Back, {{username}}</h6>
+    <h6 class = "logged-in">Balance: ${{balance}}</h6>
+    <a href="/addfunds" class="login-link">Add Funds</a>
+    <br>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
+    <br>
+    <hr>
+</header>
+<br>
+<nav class="nav nav-pills nav-justified justify-content-center">
+    <a class="nav-link active" href="/">Contest Lobby</a>
+  <a class="nav-link" href="/upcoming">Upcoming</a>
+  <a class="nav-link" href="/live">Live</a>
+  <a class="nav-link" href="/completed">Completed</a>
+</nav>
+<br>
+<div class = "contests">
+    <h1 class = "contests_header">CONTESTS</h1>
+    <br>
+    {% for contest in golf %}
+<div class="card mx-auto" style= "width: 30vw;">
+    <p class="card-title">{{contest.Contest_Name}}</p>
+    <p class="card-subtitle mb-2 text-muted">{{contest.Course}}</p>
+            <ul class="list-group list-group-flush">
+
+    <li class="list-group-item">Start Date: {{contest.Start_Date}}</li>
+    <li class="list-group-item">Buy In: ${{contest.Buy_In}}</li>
+    <li class="list-group-item">Payout Type: {{contest.Payout_Type}}</li>
+            </ul>
+    <br>
+    <a class="clickme" href="/contests/{{contest.Contest_Id}}">Enter Contest</a>
+    <hr>
+        </div>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

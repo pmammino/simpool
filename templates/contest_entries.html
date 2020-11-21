@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header">
+    <h6 class = "logged-in">Welcome Back, {{username}}</h6>
+    <h6 class = "logged-in">Balance: ${{balance}}</h6>
+    <a href="/addfunds" class="login-link">Add Funds</a>
+    <br>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
+    <br>
+    <br>
+</header>
+<div class = "center">
+    <h5 align="center">Contest Name: {{contest.Contest_Name}}</h5>
+        <table align="center">
+
+            <tr>
+                <th>Username</th>
+                <th>Golfer 1</th>
+                <th>Golfer 2</th>
+                <th>Golfer 3</th>
+                <th>Golfer 4</th>
+                <th>Golfer 5</th>
+                <th>Score</th>
+            </tr>
+            {% for lineup in lineups %}
+            <tr>
+                <td>{{lineup.Username}}</td>
+                <td>{{lineup.Golfer_1}}</td>
+                <td>{{lineup.Golfer_2}}</td>
+                <td>{{lineup.Golfer_3}}</td>
+                <td>{{lineup.Golfer_4}}</td>
+                <td>{{lineup.Golfer_5}}</td>
+                <td>{{lineup.Score}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+{% endblock %}

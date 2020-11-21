@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header">
+    <h6 class = "logged-in">Welcome Back, {{username}}</h6>
+    <h6 class = "logged-in">Balance: ${{balance}}</h6>
+    <br>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
+    <br>
+    <br>
+</header>
+<br>
+<br>
+<br>
+<div class = "contest-entry">
+<h1 class = "contests_header" align="center">SELECT YOUR FIVE GOLFERS</h1>
+<p class = "error">{{text}}</p>
+<br>
+    <div class="container page-form">
+<form class="lineup-entry" action = "/enterlineup" method = "post">
+    <select class = "form-control form-control-lg" name="golfer_1">
+        {% for golfer in golfers %}
+            <option value="{{ golfer.Golfer_Name }}">{{ golfer.Golfer_Name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+<select class = "form-control form-control-lg" name="golfer_2">
+    {% for golfer in golfers %}
+            <option value="{{ golfer.Golfer_Name }}">{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <select class = "form-control form-control-lg" name="golfer_3">
+    {% for golfer in golfers %}
+            <option value="{{ golfer.Golfer_Name }}">{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <select class = "form-control form-control-lg" name="golfer_4">
+    {% for golfer in golfers %}
+            <option value="{{ golfer.Golfer_Name }}">{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <select class = "form-control form-control-lg" name="golfer_5">
+    {% for golfer in golfers %}
+            <option value="{{ golfer.Golfer_Name }}">{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <label for="two-round">Previous Winner Two Round Total</label>
+<input type="number" class = "form-control form-control-sm" id="two-round" name="two-round"
+       min="100" max="200">
+    <br>
+    <button type="submit" class="btn btn-orange">Submit Lineup</button>
+</form>
+    </div>
+</div>
+{% endblock %}

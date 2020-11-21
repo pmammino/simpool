@@ -1,0 +1,105 @@
+.page-header {
+  background-color: #002D72;
+}
+
+body {
+  background-color: rgba(0, 45, 114,0.9);
+}
+
+.clickme {
+    background-color: #FF5910;
+    padding: 1vw 2vw;
+    color: white;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:1vw;
+    cursor:pointer;
+}
+.card {
+    background-color: rgba(0, 45, 114,0.9);
+    color: #FF5910;
+    text-align:center;
+    align: center;
+    font-size: 1.5vw;
+}
+
+a.nav-link {
+  color: #FF5910;
+  font-size: 2vw;
+}
+
+a.nav-link.active {
+  background-color: #FF5910;
+  font-size: 2vw;
+}
+
+.login-link {
+  color: #FF5910;
+  align: center
+}
+
+.register-link {
+  color: white;
+  align : center
+}
+
+.logged-in {
+  color: #FF5910;
+}
+
+.page-title {
+  text-align: center;
+  color: #FF5910;
+  font-size:7vw;
+  font-weight: bold;
+  font-family: fantasy;
+}
+
+.contests_header {
+  color: #FF5910;
+  font-weight: bold;
+  text-align: center;
+  font-size: 6vw!important;
+  font-family: fantasy;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #FF5910!important;
+}
+
+.lineup-entry{
+  color: #FF5910;
+}
+
+select{
+  text-align: center;
+  color: #FF5910;
+}
+
+
+.note {
+  text-align: center;
+  color: #FF5910;
+  font-weight: bold;
+  font-family: fantasy;
+}
+
+label {
+  color: #FF5910;
+}
+
+p {
+  text-align: center;
+  color: #FF5910;
+}
+
+.btn-orange {
+  background-color: #FF5910;
+  color: white;
+}
+
+li {
+  color: rgba(0, 45, 114,0.9)!important;
+    background-color: #FF5910!important;
+
+}

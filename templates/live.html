@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header">
+    <h6 class = "logged-in">Welcome Back, {{username}}</h6>
+    <h6 class = "logged-in">Balance: ${{balance}}</h6>
+    <a href="/addfunds" class="login-link">Add Funds</a>
+    <br>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
+    <br>
+    <br>
+    <hr>
+</header>
+<br>
+<br>
+<br>
+<nav class="nav nav-pills nav-justified">
+    <a class="nav-link" href="/">Contest Lobby</a>
+  <a class="nav-link" href="/upcoming">Upcoming</a>
+  <a class="nav-link active" href="/live">Live</a>
+  <a class="nav-link" href="/completed">Completed</a>
+</nav>
+<br>
+<br>
+<div class = "contests">
+    <h1 class = "contests_header">LIVE CONTESTS</h1>
+    <br>
+    <br>
+    <h2 class = "note">{{text}}</h2>
+    {% for lineup in live %}
+        <div>
+    <h4 class = "contests_header">Contest Name: {{lineup.Contest_Name}}</h4>
+            <a href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
+        <table>
+            <tr>
+                <th>Golfer 1</th>
+                <th>Golfer 2</th>
+                <th>Golfer 3</th>
+                <th>Golfer 4</th>
+                <th>Golfer 5</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td>{{lineup.Golfer_1}}</td>
+                <td>{{lineup.Golfer_2}}</td>
+                <td>{{lineup.Golfer_3}}</td>
+                <td>{{lineup.Golfer_4}}</td>
+                <td>{{lineup.Golfer_5}}</td>
+                 <td>{{lineup.Score}}</td>
+
+            </tr>
+        </table>
+    <hr>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

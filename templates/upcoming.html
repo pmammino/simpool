@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header">
+    <h6 class = "logged-in">Welcome Back, {{username}}</h6>
+    <h6 class = "logged-in">Balance: ${{balance}}</h6>
+    <a href="/addfunds" class="login-link">Add Funds</a>
+    <br>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
+    <br>
+    <br>
+    <hr>
+</header>
+<br>
+<br>
+<br>
+<nav class="nav nav-pills nav-justified">
+    <a class="nav-link" href="/">Contest Lobby</a>
+  <a class="nav-link active" href="/upcoming">Upcoming</a>
+  <a class="nav-link" href="/live">Live</a>
+  <a class="nav-link" href="/completed">Completed</a>
+</nav>
+<br>
+<br>
+<div class = "contests">
+    <h1 class = "contests_header">UPCOMING CONTESTS</h1>
+    <br>
+    <br>
+        <h2 class = "note">{{text}}</h2>
+
+    {% for lineup in upcoming %}
+    <div class="card mx-auto" style= "width: 30vw;">
+    <h3 class="card-title">{{lineup.Contest_Name}}</h3>
+        <ul class="list-group list-group-flush">
+    <li class="list-group-item">Golfer 1: {{lineup.Golfer_1}}</li>
+                <li class="list-group-item">Golfer 2: {{lineup.Golfer_2}}</li>
+    <li class="list-group-item">Golfer 3: {{lineup.Golfer_3}}</li>
+    <li class="list-group-item">Golfer 4: {{lineup.Golfer_4}}</li>
+    <li class="list-group-item">Golfer 5: {{lineup.Golfer_5}}</li>
+        </ul>
+
+    <hr>
+        </div>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}

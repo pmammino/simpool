@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header" xmlns="http://www.w3.org/1999/html">
+    <a class="login-link" href="/login">Login</a>
+    <br><a class="login-link" href="/register">Register</a>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
+    <br>
+    <br>
+    <hr>
+</header>
+<br>
+<br>
+<br>
+<div class = "contests">
+    <h1 class = "contests_header">CONTESTS</h1>
+    <br>
+    <br>
+    {% for contest in golf %}
+<div class="card mx-auto" style= "width: 30vw;">
+    <h3 class="card-title">Contest Name: {{contest.Contest_Name}}</h3>
+    <h5 class="card-subtitle mb-2 text-muted">{{contest.Course}}</h5>
+    <p class="card-text">Start Date: {{contest.Start_Date}}</p>
+    <p class="card-text">Buy In: ${{contest.Buy_In}}</p>
+    <p class="card-text">Payout Type: {{contest.Payout_Type}}</p>
+        <a class="clickme" href="/login">Login to Enter Contest</a>
+    <hr>
+        </div>
+    <br>
+    {% endfor %}
+</div>
+{% endblock %}
