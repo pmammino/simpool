@@ -1,9 +1,9 @@
 import uuid
 import datetime
 
-from src.common.database import Database
-from src.models.contests import Contest
-from src.models.events_golf import Event_Golf
+from common.database import Database
+from models.contests import Contest
+from models.events_golf import Event_Golf
 
 
 class Lineup(object):
