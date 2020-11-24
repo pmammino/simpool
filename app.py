@@ -12,11 +12,9 @@ from models.golfers import Golfer
 from models.lineups import Lineup
 from models.users import User
 
-app = Flask(__name__)
-app.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
-app.config.update(
-    ADMIN=os.environ.get('ADMIN')
-)
+application  = Flask(__name__)
+application .secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+
 
 
 @app.route("/")
@@ -187,4 +185,4 @@ def add_funds_amount(buy_in):
 
 
 if __name__ == "__main__":
-    app.run(port=4500)
+    application .run(port=4500)
