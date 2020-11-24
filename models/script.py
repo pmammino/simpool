@@ -2,7 +2,7 @@ import http.client
 import json
 import pandas as pd
 
-from src.common.database import Database
+from common.database import Database
 Database.initialize()
 conn = http.client.HTTPSConnection("api.sportradar.us")
 
