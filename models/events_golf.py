@@ -1,7 +1,7 @@
 
 import uuid
 
-from src.common.database import Database
+from common.database import Database
 
 
 class Event_Golf(object):
