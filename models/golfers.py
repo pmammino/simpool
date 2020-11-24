@@ -1,6 +1,6 @@
 import uuid
 
-from src.common.database import Database
+from common.database import Database
 
 
 class Golfer(object):
