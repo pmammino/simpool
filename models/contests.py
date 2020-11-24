@@ -1,8 +1,8 @@
 import datetime
 import uuid
 
-from src.common.database import Database
-from src.models.events_golf import Event_Golf
+from common.database import Database
+from models.events_golf import Event_Golf
 
 
 class Contest(object):
