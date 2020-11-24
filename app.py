@@ -13,6 +13,9 @@ from models.users import User
 
 app = Flask(__name__)
 app.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+app.config.update(
+    ADMIN=os.environ.get('ADMIN')
+)
 
 
 @app.route("/")
