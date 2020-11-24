@@ -5,11 +5,11 @@ import datetime
 
 from flask import Flask, render_template, request, session, redirect
 from flask_bcrypt import Bcrypt
-from src.common.database import Database
-from src.models.contests import Contest
-from src.models.golfers import Golfer
-from src.models.lineups import Lineup
-from src.models.users import User
+from common.database import Database
+from models.contests import Contest
+from models.golfers import Golfer
+from models.lineups import Lineup
+from models.users import User
 
 app = Flask(__name__)
 app.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
