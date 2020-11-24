@@ -13,11 +13,11 @@ from models.lineups import Lineup
 from models.users import User
 
 application  = Flask(__name__)
-application .secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
 
 
-@app.route("/")
+@application.route("/")
 def home_page():
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
@@ -27,7 +27,7 @@ def home_page():
         return render_template("home_login.html", username=session['username'], balance=session['balance'], golf=golf)
 
 
-@app.route("/upcoming")
+@application.route("/upcoming")
 def upcoming_lineups():
     username = session['username']
     upcoming = Lineup.get_contests_username(username)
@@ -43,7 +43,7 @@ def upcoming_lineups():
                                upcoming=upcoming)
 
 
-@app.route("/live")
+@application.route("/live")
 def live_lineups():
     username = session['username']
     live = Lineup.get_contests_username(username)
@@ -60,7 +60,7 @@ def live_lineups():
                                live=live)
 
 
-@app.route("/completed")
+@application.route("/completed")
 def previous_lineups():
     username = session['username']
     completed = Lineup.get_contests_username(username)
@@ -77,22 +77,22 @@ def previous_lineups():
                                completed=completed)
 
 
-@app.before_first_request
+@application.before_first_request
 def initialize_database():
     Database.initialize()
 
 
-@app.route("/login")
+@application.route("/login")
 def login_page():
     return render_template("login.html", text="")
 
 
-@app.route("/register")
+@application.route("/register")
 def register_page():
     return render_template("register.html", text="")
 
 
-@app.route("/loginvalid", methods=['POST'])
+@application.route("/loginvalid", methods=['POST'])
 def login_user():
     email = request.form['email']
     password = request.form['password']
@@ -108,7 +108,7 @@ def login_user():
         return render_template("login.html", text="Incorrect username or password")
 
 
-@app.route("/registeruser", methods=['POST'])
+@application.route("/registeruser", methods=['POST'])
 def register():
     email = request.form['email']
     username = request.form['username']
@@ -126,7 +126,7 @@ def register():
         return render_template("login.html", text="Incorrect username or password")
 
 
-@app.route("/contests/<string:contest_id>")
+@application.route("/contests/<string:contest_id>")
 def lineup_entry(contest_id):
     session["contest_id"] = contest_id
     golfers = Golfer.find_golfers()
@@ -135,7 +135,7 @@ def lineup_entry(contest_id):
                            username=session['username'], balance=session['balance'])
 
 
-@app.route("/contest_entries/<string:contest_id>")
+@application.route("/contest_entries/<string:contest_id>")
 def contest_entries(contest_id):
     lineups = Lineup.get_entries(contest_id)
     lineups = sorted(lineups, key=operator.attrgetter("Score"))
@@ -144,7 +144,7 @@ def contest_entries(contest_id):
                            balance=session['balance'])
 
 
-@app.route("/enterlineup", methods=['POST'])
+@application.route("/enterlineup", methods=['POST'])
 def enter_lineup():
     golfer_1 = request.form['golfer_1']
     golfer_2 = request.form['golfer_2']
@@ -172,12 +172,12 @@ def enter_lineup():
     return render_template("home_login.html", username=session['username'], balance=session['balance'], golf=golf)
 
 
-@app.route("/addfunds")
+@application.route("/addfunds")
 def add_funds():
     return render_template("add_funds.html", username=session['username'], balance=session['balance'])
 
 
-@app.route("/addfunds/<int:buy_in>")
+@application.route("/addfunds/<int:buy_in>")
 def add_funds_amount(buy_in):
     User.add_funds(session['username'], buy_in)
     session['balance'] = User.get_balance(session['username'])
