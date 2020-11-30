@@ -72,7 +72,7 @@ a.nav-link.active {
   color: #F9812A;
   font-size:7vw;
   font-weight: bold;
-  font-family: fantasy;
+  font-family: serif;
 }
 
 .contests_header {
@@ -80,7 +80,7 @@ a.nav-link.active {
   font-weight: bold;
   text-align: center;
   font-size: 6vw!important;
-  font-family: fantasy;
+  font-family: serif;
 }
 
 .nav-pills .nav-link.active {
@@ -101,7 +101,7 @@ select{
   text-align: center;
   color: #F9812A;
   font-weight: bold;
-  font-family: fantasy;
+  font-family: serif;
 }
 
 label {
