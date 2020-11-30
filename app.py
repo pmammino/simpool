@@ -13,8 +13,6 @@ from models.users import User
 
 application = Flask(__name__)
 application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
-session.permanent = False
-
 
 @application.route("/")
 def home_page():
