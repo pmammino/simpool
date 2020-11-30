@@ -1,62 +1,82 @@
+a, a:hover, a:focus, a:active {
+    text-decoration: none!important;
+    color: inherit;
+}
+
 .page-header {
-  background-color: #002D72;
+  background-color: #353839;
 }
 
 body {
-  background-color: rgba(0, 45, 114,0.9);
+  background-color: #353839;
 }
 
 .clickme {
-    background-color: #FF5910;
+    background-color: #F9812A;
     padding: 1vw 2vw;
     color: white;
-    text-decoration:none;
+    text-decoration: none!important;
     font-weight:bold;
     border-radius:1vw;
-    cursor:pointer;
+}
+
+.clickme-header {
+    background-color: #F9812A;
+    color: white;
+    text-decoration: none!important;
+    font-weight:bold;
+    padding: .5vw .5vw;
+    border-radius:1vw;
+
+
 }
 .card {
-    background-color: rgba(0, 45, 114,0.9);
-    color: #FF5910;
+    width: 50vw;!important;
+    background-color: #353839;
+    color: white;
     text-align:center;
     align: center;
-    font-size: 1.5vw;
+    font-size: 2.5vw;
+    border-color: white;
 }
 
 a.nav-link {
-  color: #FF5910;
+  color: white;
   font-size: 2vw;
 }
 
 a.nav-link.active {
-  background-color: #FF5910;
+  background-color: #F9812A;
   font-size: 2vw;
 }
 
 .login-link {
-  color: #FF5910;
-  align: center
+  color: #F9812A;
+  align: center;
+   font-size:1.5vw;
+
 }
 
 .register-link {
-  color: white;
+  color: #F9812A;
   align : center
 }
 
 .logged-in {
-  color: #FF5910;
+  color: white;
+  font-size:1.5vw;
 }
 
 .page-title {
   text-align: center;
-  color: #FF5910;
+  color: #F9812A;
   font-size:7vw;
   font-weight: bold;
   font-family: fantasy;
 }
 
 .contests_header {
-  color: #FF5910;
+  color: #F9812A;
   font-weight: bold;
   text-align: center;
   font-size: 6vw!important;
@@ -64,42 +84,42 @@ a.nav-link.active {
 }
 
 .nav-pills .nav-link.active {
-    background-color: #FF5910!important;
+    background-color: #F9812A!important;
 }
 
 .lineup-entry{
-  color: #FF5910;
+  color: #F9812A;
 }
 
 select{
   text-align: center;
-  color: #FF5910;
+  color: #F9812A;
 }
 
 
 .note {
   text-align: center;
-  color: #FF5910;
+  color: #F9812A;
   font-weight: bold;
   font-family: fantasy;
 }
 
 label {
-  color: #FF5910;
+  color: white;
 }
 
 p {
   text-align: center;
-  color: #FF5910;
+  color: white;
 }
 
 .btn-orange {
-  background-color: #FF5910;
+  background-color: #F9812A;
   color: white;
 }
 
 li {
-  color: rgba(0, 45, 114,0.9)!important;
-    background-color: #FF5910!important;
+  color: white!important;
+    background-color: #353839!important;
 
 }
