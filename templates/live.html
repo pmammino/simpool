@@ -3,7 +3,7 @@
 <header class="page-header">
     <h6 class = "logged-in">Welcome Back, {{username}}</h6>
     <h6 class = "logged-in">Balance: ${{balance}}</h6>
-    <a href="/addfunds" class="login-link">Add Funds</a>
+    <br><a href="/addfunds" class="clickme-header">Add Funds</a>
     <br>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
     <br>
@@ -12,8 +12,7 @@
 </header>
 <br>
 <br>
-<br>
-<nav class="nav nav-pills nav-justified">
+<nav class="nav nav-pills nav-justified justify-content-center">
     <a class="nav-link" href="/">Contest Lobby</a>
   <a class="nav-link" href="/upcoming">Upcoming</a>
   <a class="nav-link active" href="/live">Live</a>
@@ -28,7 +27,7 @@
     <h2 class = "note">{{text}}</h2>
     {% for lineup in live %}
         <div>
-    <h4 class = "contests_header">Contest Name: {{lineup.Contest_Name}}</h4>
+    <h3 class="card-title">Contest Name: {{lineup.Contest_Name}}</h3>
             <a href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
         <table>
             <tr>
@@ -49,7 +48,6 @@
 
             </tr>
         </table>
-    <hr>
         </div>
     {% endfor %}
 </div>

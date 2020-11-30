@@ -3,7 +3,7 @@
 <header class="page-header">
     <h6 class = "logged-in">Welcome Back, {{username}}</h6>
     <h6 class = "logged-in">Balance: ${{balance}}</h6>
-    <a href="/addfunds" class="login-link">Add Funds</a>
+    <br><a href="/addfunds" class="clickme-header">Add Funds</a>
     <br>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title">FANTASY SCRAMBLE</h1></a>
     <br>
@@ -12,8 +12,7 @@
 </header>
 <br>
 <br>
-<br>
-<nav class="nav nav-pills nav-justified">
+<nav class="nav nav-pills nav-justified justify-content-center">
     <a class="nav-link" href="/">Contest Lobby</a>
   <a class="nav-link" href="/upcoming">Upcoming</a>
   <a class="nav-link" href="/live">Live</a>
@@ -28,8 +27,7 @@
     <h2 class = "note">{{text}}</h2>
     {% for lineup in completed %}
      <div class="card mx-auto" style= "width: 30vw;">
-    <h3 class="card-title">{{lineup.Contest_Name}}</h3>
-         <a class="clickme" href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
+    <h3 class="card-title">Contest Name: {{lineup.Contest_Name}}</h3>
      <ul class="list-group list-group-flush">
     <li class="list-group-item">Golfer 1: {{lineup.Golfer_1}}</li>
     <li class="list-group-item">Golfer 2: {{lineup.Golfer_2}}</li>
@@ -38,7 +36,8 @@
     <li class="list-group-item">Golfer 5: {{lineup.Golfer_5}}</li>
     <li class="list-group-item">Score: {{lineup.Score}}</li>
         </ul>
-    <hr>
+         <a class="clickme" href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
+
         </div>
     <br>
     {% endfor %}
