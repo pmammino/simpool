@@ -189,7 +189,8 @@ def enter_lineup():
 
 @application.route("/addfunds")
 def add_funds():
-    return render_template("add_funds.html", username=session['username'], balance=session['balance'])
+    balance = User.get_balance(session['username'])
+    return render_template("add_funds.html", username=session['username'], balance=balance)
 
 
 @application.route("/addfunds/<int:buy_in>")
