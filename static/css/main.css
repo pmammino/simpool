@@ -4,11 +4,11 @@ a, a:hover, a:focus, a:active {
 }
 
 .page-header {
-  background-color: #353839;
+  background-color: #848484;
 }
 
 body {
-  background-color: #353839;
+  background-color: #848484;
 }
 
 .clickme {
@@ -32,7 +32,7 @@ body {
 }
 .card {
     width: 50vw;!important;
-    background-color: #353839;
+    background-color: #848484;
     color: white;
     text-align:center;
     align: center;
@@ -120,6 +120,6 @@ p {
 
 li {
   color: white!important;
-    background-color: #353839!important;
+    background-color: #848484!important;
 
 }
