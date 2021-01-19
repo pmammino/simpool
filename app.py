@@ -14,6 +14,7 @@ from models.users import User
 application = Flask(__name__)
 application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
+
 @application.route("/")
 def home_page():
     golf = Contest.find_by_sport("PGA")
@@ -81,7 +82,6 @@ def previous_lineups():
 @application.before_first_request
 def initialize_database():
     Database.initialize()
-
 
 
 @application.route("/login")
@@ -200,4 +200,4 @@ def add_funds_amount(buy_in):
 
 
 if __name__ == "__main__":
-    application.run(port=4500)
+    application.run()

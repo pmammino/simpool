@@ -61,4 +61,3 @@ class Contest(object):
         event_data = Database.find_one('events_golf', query={'event_id': event_id})
         return cls(**event_data)
 
-
