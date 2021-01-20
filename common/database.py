@@ -3,7 +3,7 @@ import pymongo
 
 class Database(object):
     ##URI = "mongodb://127.0.0.1:27017"
-    URI = "mongodb+srv://admin:v7EzRvWi4mKfy9Qq@cluster0.mljvh.mongodb.net/simplefantasy?retryWrites=true&w=majority"
+    URI = "mongodb+srv://admin:v7EzRvWi4mKfy9Qq@cluster0.mljvh.mongodb.net:27017/simplefantasy?retryWrites=true&w=majority"
     DATABASE = None
 
     @staticmethod
