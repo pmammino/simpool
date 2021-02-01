@@ -134,10 +134,8 @@ def update_lineup(lineup_id):
         Lineup.update_lineup(lineup_id, golfer_1, golfer_2, golfer_3, golfer_4,
                                  golfer_5, tiebreak)
         session["contest_id"] = ""
-        golf = Contest.find_by_sport("PGA")
-        golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
-        balance = User.get_balance(session['username'])
-        return render_template("home_login.html", username=session['username'], balance=balance, golf=golf)
+        return redirect('/')
+
 
 @application.route("/editlineup/<string:lineup_id>")
 def edit_lineup(lineup_id):
@@ -279,10 +277,7 @@ def enter_lineup():
             Lineup.create_lineup(session["contest_id"], session["username"], golfer_1, golfer_2, golfer_3, golfer_4,
                              golfer_5, tiebreak)
             session["contest_id"] = ""
-            golf = Contest.find_by_sport("PGA")
-            golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
-            balance = User.get_balance(session['username'])
-            return render_template("home_login.html", username=session['username'], balance=balance, golf=golf)
+            return redirect('/')
         else:
             text = "Insufficient Funds Please Add Funds to Enter Contest"
             golfers = Golfer.find_golfers()
