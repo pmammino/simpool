@@ -80,6 +80,11 @@ class Lineup(object):
         lineups = Database.find(collection="lineups_golf", query={"Username": username})
         return [cls(**lineup) for lineup in lineups]
 
+    @classmethod
+    def get_lineup(cls, _id):
+        lineups = Database.find(collection="lineups_golf", query={"_id": _id})
+        return [cls(**lineup) for lineup in lineups]
+
     @staticmethod
     def score_lineup(Golfer_1, Golfer_2, Golfer_3, Golfer_4, Golfer_5, Contest_id):
         event_id = Contest.get_event_id(Contest_id)

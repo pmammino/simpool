@@ -32,6 +32,20 @@ body {
 	border-color:#848484;
 
 }
+
+.clickme-lineup {
+    background-color: #F9812A;
+    color: white;
+    text-decoration: none!important;
+    font-weight:bold;
+    padding: .5vw .5vw;
+    border-radius:1vw;
+    border-style:solid;
+    border-width: thin;
+	border-color:#848484;
+
+}
+
 .card {
     width: 50vw;!important;
     background-color: #848484;
