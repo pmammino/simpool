@@ -272,7 +272,8 @@ def enter_lineup():
     else:
         buy_in = Contest.get_contest_buyin(session["contest_id"])
         buy_in = int(buy_in)
-        if session['balance'] >= buy_in:
+        balance = User.get_balance(session['username'])
+        if balance >= buy_in:
             User.remove_funds(session["username"], buy_in)
             Lineup.create_lineup(session["contest_id"], session["username"], golfer_1, golfer_2, golfer_3, golfer_4,
                              golfer_5, tiebreak)
