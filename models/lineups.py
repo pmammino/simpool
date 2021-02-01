@@ -38,6 +38,16 @@ class Lineup(object):
     def save_to_mongo(self):
         Database.insert("lineups_golf", self.json())
 
+    @staticmethod
+    def update_lineup(id, Golfer_1, Golfer_2, Golfer_3, Golfer_4, Golfer_5, Tiebreak):
+        new = {"$set": {"Golfer_1": Golfer_1,
+                        "Golfer_2": Golfer_2,
+                        "Golfer_3": Golfer_3,
+                        "Golfer_4": Golfer_4,
+                        "Golfer_5": Golfer_5,
+                        "Tiebreak": Tiebreak}}
+        Database.update_one("lineups_golf", {"_id": id}, new)
+
     @classmethod
     def create_lineup(cls, Contest_Id, Username, Golfer_1, Golfer_2, Golfer_3, Golfer_4, Golfer_5, Tiebreak):
         new_lineup = cls(Contest_Id, Username, Golfer_1, Golfer_2, Golfer_3, Golfer_4, Golfer_5, Tiebreak)

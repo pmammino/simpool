@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-header">
+    <h6 class = "logged-in">Welcome Back, {{username}}</h6>
+    <h6 class = "logged-in">Balance: ${{balance}}</h6>
+    <br>
+    <a href="/" style = "text-decoration: none;"><h1 class="page-title">SIMPOOL</h1></a>
+    <br>
+</header>
+<br>
+<div class = "contest-entry">
+<h1 class = "contests_header" align="center">SELECT YOUR FIVE GOLFERS</h1>
+<p class = "error">{{text}}</p>
+<br>
+    <div class="container page-form">
+<form class="lineup-entry" action = "/updatelineup/{{lineup_id}}" method = "post">
+    <select class = "form-control form-control-lg" name="golfer_1">
+        {% for golfer, selected in golfers %}
+            <option value="{{ golfer.Golfer_Name }}" {{selected}}>{{ golfer.Golfer_Name}}</option>
+        {% endfor %}
+    </select>
+    <br>
+<select class = "form-control form-control-lg" name="golfer_2">
+        {% for golfer, selected in golfers2 %}
+            <option value="{{ golfer.Golfer_Name }}" {{selected}}>{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <select class = "form-control form-control-lg" name="golfer_3">
+        {% for golfer, selected in golfers3 %}
+            <option value="{{ golfer.Golfer_Name }}" {{selected}}>{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <select class = "form-control form-control-lg" name="golfer_4">
+        {% for golfer, selected in golfers4 %}
+            <option value="{{ golfer.Golfer_Name }}" {{selected}}>{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <select class = "form-control form-control-lg" name="golfer_5">
+        {% for golfer, selected in golfers5 %}
+            <option value="{{ golfer.Golfer_Name }}" {{selected}}>{{ golfer.Golfer_Name}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <label for="two-round">Previous Winner Two Round Total</label>
+<input type="number" class = "form-control form-control-sm" id="two-round" name="two-round"
+       min="100" max="200" value = {{tiebreak}}>
+    <br>
+    <button type="submit" class="btn btn-orange">Submit Lineup</button>
+</form>
+    </div>
+</div>
+{% endblock %}

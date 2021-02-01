@@ -27,3 +27,11 @@ class Database(object):
     @staticmethod
     def find_one(collection, query):
         return Database.DATABASE[collection].find_one(query)
+
+    @staticmethod
+    def update_one(collection, query, new):
+        return Database.DATABASE[collection].update_one(query, new)
+
+    @staticmethod
+    def update_many(collection, query, new):
+        return Database.DATABASE[collection].update_many(query, new)
