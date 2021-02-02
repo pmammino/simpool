@@ -19,6 +19,7 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 def home_page():
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
+    golf = sorted(golf,key=operator.attrgetter('Start_Date'))
     if session.get('email') is None:
         return render_template("home.html", golf=golf)
     else:
@@ -31,6 +32,7 @@ def upcoming_lineups():
     username = session['username']
     upcoming = Lineup.get_contests_username(username)
     upcoming = list(filter(lambda x: x.Start_Date > datetime.date.today(), upcoming))
+    upcoming = sorted(upcoming,key=operator.attrgetter('Start_Date'))
     balance = User.get_balance(session['username'])
     if len(upcoming) == 0:
         text = "You Do Not Have Any Upcoming Contests"
@@ -49,6 +51,7 @@ def live_lineups():
     live = Lineup.get_contests_username(username)
     live = filter(lambda x: x.Start_Date <= datetime.date.today(), live)
     live = list(filter(lambda x: x.End_Date >= datetime.date.today(), live))
+    live = sorted(live, key=operator.attrgetter('Start_Date'))
     balance = User.get_balance(session['username'])
     if len(live) == 0:
         text = "You Do Not Have Any Live Contests"
@@ -67,6 +70,7 @@ def previous_lineups():
     completed = Lineup.get_contests_username(username)
     completed = filter(lambda x: x.End_Date >= datetime.date.today() - datetime.timedelta(days=14), completed)
     completed = list(filter(lambda x: x.End_Date <= datetime.date.today(), completed))
+    completed = sorted(completed, key=operator.attrgetter('Start_Date'))
     balance = User.get_balance(session['username'])
     if len(completed) == 0:
         text = "You Do Not Have Contests From The Last 14 Days"
