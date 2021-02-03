@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="page-header">
+<div class="jumbotron" xmlns="http://www.w3.org/1999/html">
     <h6 class = "logged-in">Welcome Back, {{username}}</h6>
     <h6 class = "logged-in">Balance: ${{balance}}</h6>
     <br><a href="/addfunds" class="clickme-header">Add Funds</a>
     <br>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title">SIMPOOL</h1></a>
     <br>
-    <br>
-    <hr>
-</header>
+</div>
 <br>
 <br>
 <nav class="nav nav-pills nav-justified justify-content-center">
@@ -27,8 +25,8 @@
         <h2 class = "note">{{text}}</h2>
 
     {% for lineup in upcoming %}
-    <div class="card mx-auto" style= "width: 50vw;">
-    <h4 class="card-title">{{lineup.Contest_Name}}</h3>
+    <div class="card mx-auto" style= "width: 30vw;">
+    <h3 class="card-title">{{lineup.Contest_Name}}</h3>
         <ul class="list-group list-group-flush">
     <li class="list-group-item">Golfer 1: {{lineup.Golfer_1}}</li>
     <li class="list-group-item">Golfer 2: {{lineup.Golfer_2}}</li>
@@ -36,7 +34,7 @@
     <li class="list-group-item">Golfer 4: {{lineup.Golfer_4}}</li>
     <li class="list-group-item">Golfer 5: {{lineup.Golfer_5}}</li>
     <li class="list-group-item"> <a class="clickme-lineup" href="/editlineup/{{lineup._id}}">Edit Lineup</a>
-	&nbsp;
+        &nbsp;
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete Lineup
   </button></li>
         </ul>

@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="page-header">
+<div class="jumbotron" xmlns="http://www.w3.org/1999/html">
     <h6 class = "logged-in">Welcome Back, {{username}}</h6>
     <h6 class = "logged-in">Balance: ${{balance}}</h6>
     <br><a href="/addfunds" class="clickme-header">Add Funds</a>
     <br>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title">SIMPOOL</h1></a>
     <br>
-    <br>
-    <hr>
-</header>
+</div>
 <br>
 <br>
 <nav class="nav nav-pills nav-justified justify-content-center">
@@ -28,7 +26,7 @@
     {% for lineup in live %}
         <div>
     <h3 class="card-title">Contest Name: {{lineup.Contest_Name}}</h3>
-            <a href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
+            <a class="clickme-lineup" href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
         <table>
             <tr>
                 <th>Golfer 1</th>

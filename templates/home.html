@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="page-header" xmlns="http://www.w3.org/1999/html">
-    <br><a class="clickme-header" href="/login">Login</a>
+<div class="jumbotron" xmlns="http://www.w3.org/1999/html">
+    <a class="clickme-header" href="/login">Login</a>
     <br>
     <br><a class="clickme-header" href="/register">Register</a>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title">SIMPOOL</h1></a>
     <br>
-    <br>
-    <hr>
-</header>
+</div>
 <br>
 <div class = "contests">
     <h1 class = "contests_header">CONTESTS</h1>
@@ -17,6 +15,7 @@
 <div class="card mx-auto">
     <h3 class="card-title">Contest Name: {{contest.Contest_Name}}</h3>
     <h5 class="card-subtitle mb-2">{{contest.Course}}</h5>
+    <hr>
     <p class="card-text">Start Date: {{contest.Start_Date}}</p>
     <p class="card-text">Buy In: ${{contest.Buy_In}}</p>
     <p class="card-text">Payout Type: {{contest.Payout_Type}}</p>

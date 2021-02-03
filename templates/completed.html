@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<header class="page-header">
+<div class="jumbotron" xmlns="http://www.w3.org/1999/html">
     <h6 class = "logged-in">Welcome Back, {{username}}</h6>
     <h6 class = "logged-in">Balance: ${{balance}}</h6>
     <br><a href="/addfunds" class="clickme-header">Add Funds</a>
@@ -9,7 +9,7 @@
     <br>
     <br>
     <hr>
-</header>
+</div>
 <br>
 <br>
 <nav class="nav nav-pills nav-justified justify-content-center">
@@ -36,7 +36,7 @@
     <li class="list-group-item">Golfer 5: {{lineup.Golfer_5}}</li>
     <li class="list-group-item">Score: {{lineup.Score}}</li>
         </ul>
-         <a class="clickme" href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
+         <a class="clickme-lineup" href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
 
         </div>
     <br>
