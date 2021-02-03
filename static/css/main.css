@@ -1,7 +1,7 @@
 a, a:hover, a:focus, a:active {
     text-decoration: none!important;
-    color: inherit;
-}
+    color: white;
+	}
 
 .page-header {
   background-color: #F9812A;
