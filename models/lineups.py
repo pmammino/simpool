@@ -39,6 +39,10 @@ class Lineup(object):
         Database.insert("lineups_golf", self.json())
 
     @staticmethod
+    def delete_lineup(id):
+        Database.delete_one("lineups_golf", {"_id": id})
+
+    @staticmethod
     def update_lineup(id, Golfer_1, Golfer_2, Golfer_3, Golfer_4, Golfer_5, Tiebreak):
         new = {"$set": {"Golfer_1": Golfer_1,
                         "Golfer_2": Golfer_2,

@@ -35,10 +35,37 @@
     <li class="list-group-item">Golfer 3: {{lineup.Golfer_3}}</li>
     <li class="list-group-item">Golfer 4: {{lineup.Golfer_4}}</li>
     <li class="list-group-item">Golfer 5: {{lineup.Golfer_5}}</li>
-    <li class="list-group-item"> <a class="clickme-lineup" href="/editlineup/{{lineup._id}}">Edit Lineup</a></li>
+    <li class="list-group-item"> <a class="clickme-lineup" href="/editlineup/{{lineup._id}}">Edit Lineup</a>
+	&nbsp;
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete Lineup
+  </button></li>
         </ul>
         </div>
     <br>
+    <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Are You Sure</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          Confirm You Want To Remove This Lineup
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <a class="clickme-delete" href="/deletelineup/{{lineup._id}}">Delete Lineup</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
     {% endfor %}
 </div>
 {% endblock %}

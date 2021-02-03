@@ -140,6 +140,11 @@ def update_lineup(lineup_id):
         session["contest_id"] = ""
         return redirect('/')
 
+@application.route("/deletelineup/<string:lineup_id>")
+def delete_lineup(lineup_id):
+    Lineup.delete_lineup(lineup_id)
+    return redirect("/upcoming")
+
 
 @application.route("/editlineup/<string:lineup_id>")
 def edit_lineup(lineup_id):

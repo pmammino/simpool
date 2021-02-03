@@ -37,13 +37,31 @@ body {
     background-color: #F9812A;
     color: white;
     text-decoration: none!important;
-    font-weight:bold;
-    padding: .5vw .5vw;
-    border-radius:1vw;
-    border-style:solid;
-    border-width: thin;
 	border-color:#848484;
-
+	border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: 400;
+}
+.clickme-delete {
+    background-color: red;
+    color: white;
+    text-decoration: none!important;
+	border-color:#848484;
+	border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    font-weight: 400;
 }
 
 .card {
