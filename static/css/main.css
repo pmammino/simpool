@@ -4,7 +4,7 @@ a, a:hover, a:focus, a:active {
 	}
 
 .page-header {
-  background-color: #d92550;
+  background-color: #F9812A;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
 }
 
 .clickme {
-    background-color: #d92550;
+    background-color: #F9812A;
     padding: 1vw 2vw;
     color: white;
     text-decoration: none !important;
@@ -21,7 +21,7 @@ body {
 }
 
 .clickme-header {
-    background-color: #d92550;
+    background-color: #F9812A;
     color: white;
     font-weight:bold;
     padding: .5vw .5vw;
@@ -36,11 +36,11 @@ body {
 .jumbotron{
     padding: 1rem 1rem !important;
     margin-bottom: 0rem !important;
-        background-color: #d92550;
+        background-color: #F9812A;
     color: white;
 }
 .clickme-lineup {
-    background-color: #d92550;
+    background-color: #F9812A;
     color: white;
     text-decoration: none !important;
 	border-color:#e9ecef;
@@ -72,7 +72,7 @@ body {
 .card {
     width: 80vw;!important;
     background-color: #C7CED6;
-    color: #d92550;
+    color: #F9812A;
     text-align:center;
     align: center;
     font-size: 3vw;
@@ -85,24 +85,24 @@ hr {
 }
 
 a.nav-link {
-  color: #d92550;
+  color: #F9812A;
   font-size: 2vw;
 }
 
 a.nav-link.active {
-  background-color: #d92550;
+  background-color: #F9812A;
   font-size: 2vw;
 }
 
 .login-link {
-  color: #d92550;
+  color: #F9812A;
   align: center;
    font-size:1.5vw;
 
 }
 
 .register-link {
-  color: #d92550;
+  color: #F9812A;
   align : center
 }
 
@@ -122,7 +122,7 @@ a.nav-link.active {
 }
 
 .contests_header {
-  color: #d92550;
+  color: #F9812A;
   font-weight: bold;
   text-align: center;
   font-size: 8vw!important;
@@ -130,7 +130,7 @@ a.nav-link.active {
 }
 
 .lineups_header {
-  color: #d92550;
+  color: #F9812A;
   font-weight: bold;
   text-align: center;
   font-size: 4vw!important;
@@ -138,57 +138,57 @@ a.nav-link.active {
 }
 
 .nav-pills .nav-link.active {
-    background-color: #d92550!important;
+    background-color: #F9812A!important;
 }
 
 .lineup-entry{
-  color: #d92550;
+  color: #F9812A;
 }
 
 select{
   text-align: center;
-  color: #d92550;
+  color: #F9812A;
 }
 
 
 .note {
   text-align: center;
-  color: #d92550;
+  color: #F9812A;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 label {
-  color: #d92550;
+  color: #F9812A;
 }
 
 p {
   text-align: center;
-  color: #d92550;
+  color: #F9812A;
 }
 
 .btn-orange {
-  background-color: #d92550;
+  background-color: #F9812A;
   color: white;
 }
 
 li {
-  color: #d92550!important;
+  color: #F9812A!important;
     font-size: 1vw!important;
     background-color: #e9ecef!important;
 
 }
 
 table {
-color: #d92550;
+color: #F9812A;
   text-align: center;
   font-size: 1.5vw!important;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid #d92550;
+  border: 1px solid #F9812A;
 }
 
 .contests_title {
-  color: #d92550;
+  color: #F9812A;
   font-weight: bold;
   text-align: center;
   font-size: 3vw!important;
@@ -203,7 +203,7 @@ th {
     padding-left: .75vw;
   padding-right: .75vw;
   text-align: center;
-  background-color: #d92550;
+  background-color: #F9812A;
   color: white;
     border: 1px solid black;
 }
