@@ -13,7 +13,7 @@ body {
 
 .clickme {
     background-color: #F9812A;
-    padding: 1vw 2vw;
+    padding: .5vw .5vw;
     color: white;
     text-decoration: none !important;
     font-weight:bold;
@@ -75,7 +75,7 @@ body {
     color: #F9812A;
     text-align:center;
     align: center;
-    font-size: 3vw;
+    font-size: 2vw;
     border-color: white;
 }
 
@@ -197,7 +197,7 @@ color: #F9812A;
 
 tr:nth-child(even){background-color: #f2f2f2;}
 
-th {
+.entries_header {
   padding-top: .75vw;
   padding-bottom: .75vw;
     padding-left: .75vw;
@@ -208,7 +208,7 @@ th {
     border: 1px solid black;
 }
 
-td {
+.entries_row {
   border: 1px solid black;
     padding-top: .75vw;
   padding-bottom: .75vw;
@@ -216,3 +216,36 @@ td {
   padding-right: .75vw;
 }
 
+.contest_table {
+color: #F9812A;
+  text-align: center;
+  font-size: 2vw !important;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none !important;
+  border-radius: 13px;
+
+  }
+
+.contest_tableheader {
+  padding-top: .75vw;
+  padding-bottom: .75vw;
+    padding-left: .75vw;
+  padding-right: .75vw;
+  text-align: center;
+   font-size: 1vw !important;
+  border-radius: 13px;
+    border: none !important;
+  background-color: #F9812A;
+  color: white;
+}
+
+.contest_tablerow {
+    padding-top: .75vw;
+  padding-bottom: .75vw;
+    padding-left: .75vw;
+  padding-right: .75vw;
+    font-size: 2vw !important;
+    text-align: center;
+  border-radius: 13px;
+    border: none !important;
+}

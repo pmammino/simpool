@@ -3,34 +3,34 @@
 <div class="jumbotron" xmlns="http://www.w3.org/1999/html">
     <h6 class = "logged-in">Welcome Back, {{username}}</h6>
     <h6 class = "logged-in">Balance: ${{balance}}</h6>
-    <a href="/addfunds" class="clickme-header">Add Funds</a>
+    <br><a href="/addfunds" class="clickme-header">Add Funds</a>
     <br>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title">SIMPOOL</h1></a>
     <br>
 </div>
 <br>
-<div class = "center">
-    <h2 align="center" class = "card-title">Contest Name: {{contest.Contest_Name}}</h2>
+<div align = "center">
+    <h1 align="center" class = "contests_header">{{contest.Contest_Name}}</h1>
     <br>
         <table>
             <tr>
-                <th>Username</th>
-                <th>Golfer 1</th>
-                <th>Golfer 2</th>
-                <th>Golfer 3</th>
-                <th>Golfer 4</th>
-                <th>Golfer 5</th>
-                <th>Score</th>
+                <th class = "entries_header">Username</th>
+                <th class = "entries_header">Golfer 1</th>
+                <th class = "entries_header">Golfer 2</th>
+                <th class = "entries_header">Golfer 3</th>
+                <th class = "entries_header">Golfer 4</th>
+                <th class = "entries_header">Golfer 5</th>
+                <th class = "entries_header">Score</th>
             </tr>
             {% for lineup in lineups %}
             <tr>
-                <td>{{lineup.Username}}</td>
-                <td>{{lineup.Golfer_1}}</td>
-                <td>{{lineup.Golfer_2}}</td>
-                <td>{{lineup.Golfer_3}}</td>
-                <td>{{lineup.Golfer_4}}</td>
-                <td>{{lineup.Golfer_5}}</td>
-                <td>{{lineup.Score}}</td>
+                <td class = "entries_row">{{lineup.Username}}</td>
+                <td class = "entries_row">{{lineup.Golfer_1}}</td>
+                <td class = "entries_row">{{lineup.Golfer_2}}</td>
+                <td class = "entries_row">{{lineup.Golfer_3}}</td>
+                <td class = "entries_row">{{lineup.Golfer_4}}</td>
+                <td class = "entries_row">{{lineup.Golfer_5}}</td>
+                <td class = "entries_row">{{lineup.Score}}</td>
             </tr>
             {% endfor %}
         </table>
