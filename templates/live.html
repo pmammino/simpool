@@ -23,30 +23,21 @@
     <br>
     <br>
     <h2 class = "note">{{text}}</h2>
-    {% for lineup in live %}
-<div class = "center">
+	{% for lineup in live %}
+     <div class="card mx-auto" style= "width: 80vw;">
     <h2 class="card-title">Contest Name: {{lineup.Contest_Name}}</h2>
-            <a class="clickme-lineup" href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
-        <table>
-            <tr>
-                <th>Golfer 1</th>
-                <th>Golfer 2</th>
-                <th>Golfer 3</th>
-                <th>Golfer 4</th>
-                <th>Golfer 5</th>
-                <th>Score</th>
-            </tr>
-            <tr>
-                <td>{{lineup.Golfer_1}}</td>
-                <td>{{lineup.Golfer_2}}</td>
-                <td>{{lineup.Golfer_3}}</td>
-                <td>{{lineup.Golfer_4}}</td>
-                <td>{{lineup.Golfer_5}}</td>
-                 <td>{{lineup.Score}}</td>
+     <ul class="list-group list-group-flush">
+    <li class="list-group-item">Golfer 1: {{lineup.Golfer_1}}</li>
+    <li class="list-group-item">Golfer 2: {{lineup.Golfer_2}}</li>
+    <li class="list-group-item">Golfer 3: {{lineup.Golfer_3}}</li>
+    <li class="list-group-item">Golfer 4: {{lineup.Golfer_4}}</li>
+    <li class="list-group-item">Golfer 5: {{lineup.Golfer_5}}</li>
+    <li class="list-group-item">Score: {{lineup.Score}}</li>
+        </ul>
+         <a class="clickme-lineup" href = "/contest_entries/{{lineup.Contest_Id}}">View All Entries</a>
 
-            </tr>
-        </table>
         </div>
+    <br>
     {% endfor %}
 </div>
 {% endblock %}
