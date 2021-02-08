@@ -19,6 +19,7 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 def home_page():
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
+    golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
     golf = sorted(golf,key=operator.attrgetter('Start_Date'))
     if session.get('email') is None:
         return render_template("home.html", golf=golf)
