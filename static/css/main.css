@@ -8,7 +8,7 @@ a, a:hover, a:focus, a:active {
 }
 
 body {
-  background-color: #C7CED6;
+    background: linear-gradient(#C7CED6 95%,#F9812A);
 }
 
 .clickme {
