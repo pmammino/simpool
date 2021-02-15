@@ -21,7 +21,7 @@ def home_page():
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
     golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
     golf = sorted(golf,key=operator.attrgetter('Start_Date'))
-    if if 'username' in session:
+    if 'username' in session:
         return render_template("home.html", golf=golf)
     else:
         balance = User.get_balance(session['username'])
@@ -58,7 +58,7 @@ def live_lineups():
         text = "You Do Not Have Any Live Contests"
     else:
         text = ""
-    if if 'username' in session:
+    if 'username' in session:
         return render_template("nologin.html", type="Live")
     else:
         return render_template("live.html", username=session['username'], text=text, balance=balance,
@@ -77,7 +77,7 @@ def previous_lineups():
         text = "You Do Not Have Contests From The Last 14 Days"
     else:
         text = ""
-    if if 'username' in session:
+    if 'username' in session:
         return render_template("nologin.html", type="Completed")
     else:
         return render_template("completed.html", username=session['username'], text=text, balance=balance,
