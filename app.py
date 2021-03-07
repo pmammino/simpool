@@ -309,6 +309,12 @@ def add_funds_amount(buy_in):
     User.add_funds(session['username'], buy_in)
     return redirect("/")
 
+@application.route('/logout')
+def logout():
+   # remove the username from the session if it is there
+   session.pop('email', None)
+   return redirect("/")
+
 
 if __name__ == "__main__":
     application.run()
