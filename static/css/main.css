@@ -4,7 +4,7 @@ a, a:hover, a:focus, a:active {
 	}
 
 .page-header {
-  background-color: #02966e;
+  background-color: #e55111;
 }
 
 html, 
@@ -13,12 +13,12 @@ body {
 }
 
 body {
-    background: linear-gradient(#C7CED6 80%,#004331);
+    background: linear-gradient(#C7CED6 80%,#11a5e5);
     padding-bottom: 25vh;
 }
 
 .clickme {
-    background-color: #02966e;
+    background-color: #e55111;
     padding: .5vw .5vw;
     color: white;
     text-decoration: none !important;
@@ -41,11 +41,11 @@ body {
 .jumbotron{
     padding: 1rem 1rem !important;
     margin-bottom: 0rem !important;
-    background: linear-gradient(#004331, #C7CED6);
+    background: linear-gradient(#11a5e5, #C7CED6);
     color: white;
 }
 .clickme-lineup {
-    background-color: #02966e;
+    background-color: #e55111;
     color: white;
     text-decoration: none !important;
 	border-color:#e9ecef;
@@ -77,7 +77,7 @@ body {
 .card {
     width: 80vw;!important;
     background-color: #e9ecef;
-    color: #02966e;
+    color: #e55111;
     text-align:center;
     align: center;
     font-size: 2vw;
@@ -90,24 +90,24 @@ hr {
 }
 
 a.nav-link {
-  color: #02966e;
+  color: #e55111;
   font-size: 2vw;
 }
 
 a.nav-link.active {
-  background-color: #02966e;
+  background-color: #e55111;
   font-size: 2vw;
 }
 
 .login-link {
-  color: #02966e;
+  color: #e55111;
   align: center;
    font-size:1.5vw;
 
 }
 
 .register-link {
-  color: #02966e;
+  color: #e55111;
   align : center
 }
 
@@ -127,7 +127,7 @@ a.nav-link.active {
 }
 
 .contests_header {
-  color: #02966e;
+  color: #e55111;
   font-weight: bold;
   text-align: center;
   font-size: 3vw!important;
@@ -135,7 +135,7 @@ a.nav-link.active {
 }
 
 .lineups_header {
-  color: #02966e;
+  color: #e55111;
   font-weight: bold;
   text-align: center;
   font-size: 4vw!important;
@@ -143,42 +143,42 @@ a.nav-link.active {
 }
 
 .nav-pills .nav-link.active {
-    background-color: #02966e!important;
+    background-color: #e55111!important;
 }
 
 .lineup-entry{
-  color: #02966e;
+  color: #e55111;
 }
 
 select{
   text-align: center;
-  color: #02966e;
+  color: #e55111;
 }
 
 
 .note {
   text-align: center;
-  color: #02966e;
+  color: #e55111;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 label {
-  color: #02966e;
+  color: #e55111;
 }
 
 p {
   text-align: center;
-  color: #02966e;
+  color: #e55111;
 }
 
 .btn-orange {
-  background-color: #02966e;
+  background-color: #e55111;
   color: white;
 }
 
 li {
-  color: #02966e!important;
+  color: #e55111!important;
     font-size: 1vw!important;
     background-color: #e9ecef!important;
 font-size:2vw!important;
@@ -186,15 +186,15 @@ font-size:2vw!important;
 }
 
 table {
-color: #02966e;
+color: #e55111;
   text-align: center;
   font-size: 1.5vw!important;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid #02966e;
+  border: 1px solid #e55111;
 }
 
 .contests_title {
-  color: #02966e;
+  color: #e55111;
   font-weight: bold;
   text-align: center;
   font-size: 3vw!important;
@@ -209,7 +209,7 @@ tr:nth-child(even){background-color: #f2f2f2;}
     padding-left: .75vw;
   padding-right: .75vw;
   text-align: center;
-  background-color: #02966e;
+  background-color: #e55111;
   color: white;
     border: 1px solid black;
 }
@@ -223,7 +223,7 @@ tr:nth-child(even){background-color: #f2f2f2;}
 }
 
 .contest_table {
-color: #02966e;
+color: #e55111;
   text-align: center;
   font-size: 2vw !important;
   font-family: Arial, Helvetica, sans-serif;
@@ -241,7 +241,7 @@ color: #02966e;
    font-size: 1vw !important;
   border-radius: 13px;
     border: none !important;
-  background-color: #02966e;
+  background-color: #e55111;
   color: white;
 }
 
