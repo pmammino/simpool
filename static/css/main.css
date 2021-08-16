@@ -255,3 +255,24 @@ color: #e55111;
   border-radius: 13px;
     border: none !important;
 }
+
+.col-left{
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.col-middle{
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.col-right{
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
