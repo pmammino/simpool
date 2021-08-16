@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron" xmlns="http://www.w3.org/1999/html">
-    <a class="login-link" href="/login">Login</a>
-    <br><a class="register-link" href="/register">Register</a>
+  <div class="row">
+    <div class="col-left">
+<a class="clickme-header" href="/login">Login</a>
+	</div>
+    <div class="col-middle">
+    </div>
+    <div class="col-right">
+<a class="clickme-header" href="/register">Register</a>
+    </div>
+	</div>
+    <br>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title"><img src="{{url_for('static', filename='simpool orange.png')}}" />SIMPOOL</h1></a>
     <br>
 </div>

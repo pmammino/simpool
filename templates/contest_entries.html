@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron" xmlns="http://www.w3.org/1999/html">
+  <div class="row">
+    <div class="col-left">
     <h6 class = "logged-in">Welcome Back, {{username}}</h6>
-    <h6 class = "logged-in">Balance: ${{balance}}</h6>
-    <a href="/addfunds" class="clickme-header">Add Funds</a>
+    <h6 class = "logged-in"><a href="/addfunds">Balance: ${{balance}}</a></h6>
+	</div>
+    <div class="col-middle">
+    </div>
+    <div class="col-right">
+    <a href="/logout" class="clickme-header">Logout</a> 
+    </div>
+	</div>
     <br>
     <a href="/" style = "text-decoration: none;"><h1 class="page-title"><img src="{{url_for('static', filename='simpool orange.png')}}" />SIMPOOL</h1></a>
     <br>
