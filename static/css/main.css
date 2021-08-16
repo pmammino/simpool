@@ -41,7 +41,7 @@ body {
 .jumbotron{
     padding: 1rem 1rem !important;
     margin-bottom: 0rem !important;
-    background: linear-gradient(#11a5e5, #C7CED6);
+    background: linear-gradient(#11a5e5 80%, #C7CED6);
     color: white;
 }
 .clickme-lineup {
