@@ -19,6 +19,9 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 
 @application.route("/")
 def home_page():
+    user_address = requests.get('https://api.ipify.org').text
+    response = json.loads(requests.get("http://api.ipstack.com/"+user_address+"?access_key=2fe74d1492a0ae71f6423ec9150b3a08&fields=region_code&output=json").text)["region_code"]
+    session["location"] = user_address
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
     golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
@@ -196,9 +199,6 @@ def edit_lineup(lineup_id):
 
 @application.before_first_request
 def initialize_database():
-    user_address = requests.get('https://api.ipify.org').text
-    response = json.loads(requests.get("http://api.ipstack.com/"+user_address+"?access_key=2fe74d1492a0ae71f6423ec9150b3a08&fields=region_code&output=json").text)["region_code"]
-    session["location"] = user_address
     Database.initialize()
 
 
