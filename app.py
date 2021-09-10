@@ -196,7 +196,7 @@ def edit_lineup(lineup_id):
 
 @application.before_first_request
 def initialize_database():
-    user_address = request.remote_add
+    user_address = request.remote_addr
     response = json.loads(requests.get("http://api.ipstack.com/"+user_address+"?access_key=2fe74d1492a0ae71f6423ec9150b3a08&fields=region_code&output=json").text)["region_code"]
     session["location"] = response
     Database.initialize()
