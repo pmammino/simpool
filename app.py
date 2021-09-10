@@ -5,6 +5,8 @@ import datetime
 
 from flask import Flask, render_template, request, session, redirect
 import bcrypt
+import requests
+import json
 from common.database import Database
 from models.contests import Contest
 from models.golfers import Golfer
@@ -17,6 +19,7 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 
 @application.route("/")
 def home_page():
+    response = json.loads(requests.get("http://api.ipstack.com/check?access_key=2fe74d1492a0ae71f6423ec9150b3a08&fields=region_code&output=json").text)["region_code"]
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
     golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
