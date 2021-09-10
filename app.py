@@ -19,13 +19,12 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 
 @application.route("/")
 def home_page():
-    response = json.loads(requests.get("http://api.ipstack.com/check?access_key=2fe74d1492a0ae71f6423ec9150b3a08&fields=region_code&output=json").text)["region_code"]
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
     golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
     golf = sorted(golf,key=operator.attrgetter('Start_Date'))
     if session.get('email') is None:        
-        return render_template("home.html", golf=golf)
+        return render_template("home.html", golf=golf, test = session["location"])
     else:
         balance = User.get_balance(session['username'])
         return render_template("home_login.html", username=session['username'], balance=balance, golf=golf)
@@ -197,6 +196,8 @@ def edit_lineup(lineup_id):
 
 @application.before_first_request
 def initialize_database():
+    response = json.loads(requests.get("http://api.ipstack.com/check?access_key=2fe74d1492a0ae71f6423ec9150b3a08&fields=region_code&output=json").text)["region_code"]
+    session["location"] = response
     Database.initialize()
 
 
