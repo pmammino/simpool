@@ -20,7 +20,7 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 @application.route("/")
 def home_page():
     user_address = request.access_route[0]
-    response = json.loads(requests.get("https://geolocation-db.com/json/").text)["state"]
+    response = json.loads(requests.get("https://geolocation-db.com/json/"))["state"]
     session["location"] = response
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
