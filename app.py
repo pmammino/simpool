@@ -20,8 +20,7 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 @application.route("/")
 def home_page():
     user_address = request.access_route[0]
-    #response = json.loads(requests.get("http://api.ipstack.com/"+user_address+"?access_key=2fe74d1492a0ae71f6423ec9150b3a08&fields=region_code&output=json").text)["region_code"]
-    response = json.loads(requests.get("https://geolocation-db.com/json/").text)
+    response = json.loads(requests.get("https://geolocation-db.com/json/").text)["state"]
     session["location"] = response
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
