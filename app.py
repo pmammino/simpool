@@ -21,7 +21,7 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 def home_page():
     user_address = request.access_route[0]
     response = json.loads(requests.get("https://geolocation-db.com/json/").text)
-    session["location"] = user_address + response
+    session["location"] = response
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
     golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
