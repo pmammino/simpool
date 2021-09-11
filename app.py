@@ -20,13 +20,12 @@ application.secret_key = ''.join(random.choices(string.ascii_uppercase + string.
 @application.route("/")
 def home_page():
     response = json.loads(requests.get("https://geolocation-db.com/json/").text)["state"]
-    session["location"] = response
     golf = Contest.find_by_sport("PGA")
     golf = filter(lambda x: x.Start_Date > datetime.date.today(), golf)
     golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
     golf = sorted(golf,key=operator.attrgetter('Start_Date'))
     if session.get('email') is None:        
-        return render_template("home.html", golf=golf, test = session["location"])
+        return render_template("home.html", golf=golf, test = response)
     else:
         balance = User.get_balance(session['username'])
         return render_template("home_login.html", username=session['username'], balance=balance, golf=golf)
