@@ -27,7 +27,7 @@ def home_page():
     golf = filter(lambda x: x.Start_Date <= datetime.date.today() + datetime.timedelta(days=21), golf)
     golf = sorted(golf,key=operator.attrgetter('Start_Date'))
     if session.get('email') is None:        
-        return render_template("home.html", golf=golf, test = session["location"])
+        return render_template("home.html", golf=golf)
     else:
         balance = User.get_balance(session['username'])
         return render_template("home_login.html", username=session['username'], balance=balance, golf=golf)
@@ -97,54 +97,59 @@ def update_lineup(lineup_id):
     golfer_5 = request.form['golfer_5']
     tiebreak = request.form['two-round']
 
-    if Lineup.validate_lineup(golfer_1, golfer_2, golfer_3, golfer_4, golfer_5) is not True:
-        text = "Choose Five Different Golfers"
-        golfers = Golfer.find_golfers()
-        golfers = sorted(golfers, key=Golfer.get_name)
-        selected = []
-        for i in golfers:
-            if i.Golfer_Name == golfer_1:
-                selected.append("selected")
-            else:
-                selected.append("")
-        selected2 = []
-        for i in golfers:
-            if i.Golfer_Name == golfer_2:
-                selected2.append("selected")
-            else:
-                selected2.append("")
-        selected3 = []
-        for i in golfers:
-            if i.Golfer_Name == golfer_3:
-                selected3.append("selected")
-            else:
-                selected3.append("")
-        selected4 = []
-        for i in golfers:
-            if i.Golfer_Name == golfer_4:
-                selected4.append("selected")
-            else:
-                selected4.append("")
-        selected5 = []
-        for i in golfers:
-            if i.Golfer_Name == golfer_5:
-                selected5.append("selected")
-            else:
-                selected5.append("")
-        golfers1 = zip(golfers, selected)
-        golfers2 = zip(golfers, selected2)
-        golfers3 = zip(golfers, selected3)
-        golfers4 = zip(golfers, selected4)
-        golfers5 = zip(golfers, selected5)
-        balance = User.get_balance(session['username'])
-        return render_template("lineup_update.html", tiebreak=tiebreak,golfers=golfers1, golfers2=golfers2, golfers3=golfers3,
+    states = ['NJ', 'CO', 'NY', 'PA']
+
+    if session["location"] in states:
+        if Lineup.validate_lineup(golfer_1, golfer_2, golfer_3, golfer_4, golfer_5) is not True:
+            text = "Choose Five Different Golfers"
+            golfers = Golfer.find_golfers()
+            golfers = sorted(golfers, key=Golfer.get_name)
+            selected = []
+            for i in golfers:
+                if i.Golfer_Name == golfer_1:
+                    selected.append("selected")
+                else:
+                    selected.append("")
+            selected2 = []
+            for i in golfers:
+                if i.Golfer_Name == golfer_2:
+                    selected2.append("selected")
+                else:
+                    selected2.append("")
+            selected3 = []
+            for i in golfers:
+                if i.Golfer_Name == golfer_3:
+                    selected3.append("selected")
+                else:
+                    selected3.append("")
+            selected4 = []
+            for i in golfers:
+                if i.Golfer_Name == golfer_4:
+                    selected4.append("selected")
+                else:
+                    selected4.append("")
+            selected5 = []
+            for i in golfers:
+                if i.Golfer_Name == golfer_5:
+                    selected5.append("selected")
+                else:
+                    selected5.append("")
+            golfers1 = zip(golfers, selected)
+            golfers2 = zip(golfers, selected2)
+            golfers3 = zip(golfers, selected3)
+            golfers4 = zip(golfers, selected4)
+            golfers5 = zip(golfers, selected5)
+            balance = User.get_balance(session['username'])
+            return render_template("lineup_update.html", tiebreak=tiebreak,golfers=golfers1, golfers2=golfers2, golfers3=golfers3,
                                golfers4=golfers4, golfers5=golfers5,
                                username=session['username'], balance=balance, text=text, lineup_id = lineup_id)
-    else:
-        Lineup.update_lineup(lineup_id, golfer_1, golfer_2, golfer_3, golfer_4,
+        else:
+            Lineup.update_lineup(lineup_id, golfer_1, golfer_2, golfer_3, golfer_4,
                                  golfer_5, tiebreak)
-        session["contest_id"] = ""
-        return redirect('/')
+            session["contest_id"] = ""
+            return redirect('/')
+    else:
+        return render_template("invalidlocation.html")
 
 @application.route("/deletelineup/<string:lineup_id>")
 def delete_lineup(lineup_id):
@@ -277,31 +282,35 @@ def enter_lineup():
     golfer_5 = request.form['golfer_5']
     tiebreak = request.form['two-round']
 
-    if Lineup.validate_lineup(golfer_1, golfer_2, golfer_3, golfer_4, golfer_5) is not True:
-        text = "Choose Five Different Golfers"
-        golfers = Golfer.find_golfers()
-        golfers = sorted(golfers, key=Golfer.get_name)
-        balance = User.get_balance(session['username'])
-        return render_template("lineup_entry.html", golfers=golfers, contest_id=session["contest_id"],
-                               username=session['username'], balance=balance, text=text)
-    else:
-        buy_in = Contest.get_contest_buyin(session["contest_id"])
-        buy_in = int(buy_in)
-        balance = User.get_balance(session['username'])
-        if balance >= buy_in:
-            User.remove_funds(session["username"], buy_in)
-            Lineup.create_lineup(session["contest_id"], session["username"], golfer_1, golfer_2, golfer_3, golfer_4,
-                             golfer_5, tiebreak)
-            session["contest_id"] = ""
-            return redirect('/')
-        else:
-            text = "Insufficient Funds Please Add Funds to Enter Contest"
+    states = ['NJ', 'CO', 'NY', 'PA']
+    
+    if session["location"] in states:
+        if Lineup.validate_lineup(golfer_1, golfer_2, golfer_3, golfer_4, golfer_5) is not True:
+            text = "Choose Five Different Golfers"
             golfers = Golfer.find_golfers()
             golfers = sorted(golfers, key=Golfer.get_name)
             balance = User.get_balance(session['username'])
             return render_template("lineup_entry.html", golfers=golfers, contest_id=session["contest_id"],
+                               username=session['username'], balance=balance, text=text)
+        else:
+            buy_in = Contest.get_contest_buyin(session["contest_id"])
+            buy_in = int(buy_in)
+            balance = User.get_balance(session['username'])
+            if balance >= buy_in:
+                User.remove_funds(session["username"], buy_in)
+                Lineup.create_lineup(session["contest_id"], session["username"], golfer_1, golfer_2, golfer_3, golfer_4,
+                             golfer_5, tiebreak)
+                session["contest_id"] = ""
+                return redirect('/')
+            else:
+                text = "Insufficient Funds Please Add Funds to Enter Contest"
+                golfers = Golfer.find_golfers()
+                golfers = sorted(golfers, key=Golfer.get_name)
+                balance = User.get_balance(session['username'])
+                return render_template("lineup_entry.html", golfers=golfers, contest_id=session["contest_id"],
                                    username=session['username'], balance=balance, text=text)
-
+    else:
+        return render_template("invalidlocation.html")
 
 @application.route("/addfunds")
 def add_funds():
