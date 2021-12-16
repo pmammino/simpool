@@ -6,13 +6,13 @@ from models.events_golf import Event_Golf
 
 
 class Contest(object):
-    def __init__(self, Contest_Id, Sport, Contest_Name, Event_ID, Buy_In,Payout_Type, _id = None):
+    def __init__(self, Contest_Id, Sport, Contest_Name, Event_ID, Buy_In,Max_Entires, _id = None):
         self.Contest_Id = Contest_Id
         self.Sport = Sport
         self.Contest_Name = Contest_Name
         self.Event_ID = Event_ID
         self.Buy_In = Buy_In
-        self.Payout_Type = Payout_Type
+        self.Max_Entires = Max_Entires
         self.Course = Event_Golf.find_event_course(Event_ID)
         self.Start_Date = Event_Golf.find_event_date(Event_ID).date()
         self.End_Date = Event_Golf.find_event_enddate(Event_ID).date()
@@ -27,7 +27,7 @@ class Contest(object):
             "Contest_Name": self.Contest_Name,
             "Event_ID": self.Event_ID,
             "Buy_In": self.Buy_In,
-            "Payout_Type": self.Payout_Type
+            "Max_Entires": self.Max_Entires
         }
 
     @classmethod
