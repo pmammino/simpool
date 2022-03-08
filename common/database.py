@@ -1,5 +1,5 @@
 import pymongo
-import srv as srv
+#import srv as srv
 
 
 class Database(object):
@@ -20,7 +20,6 @@ class Database(object):
     def insert_many(collection, data):
         Database.DATABASE[collection].insert_many(data)
 
-
     @staticmethod
     def find(collection, query):
         return Database.DATABASE[collection].find(query)
@@ -31,7 +30,7 @@ class Database(object):
 
     @staticmethod
     def update_one(collection, query, new):
-        return Database.DATABASE[collection].update_one(query, new)
+        return Database.DATABASE[collection].update_one(query, new, upsert=True)
 
     @staticmethod
     def update_many(collection, query, new):

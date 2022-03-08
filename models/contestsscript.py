@@ -1,7 +1,10 @@
+from datetime import  datetime,timedelta
 import http.client
 import json
 import pandas as pd
 import uuid
+import pymongo
+
 
 from common.database import Database
 Database.initialize()
@@ -9,11 +12,11 @@ Database.initialize()
 ##import pymongo
 
 ##URI = "mongodb://127.0.0.1:27017"
-URI = "mongodb+srv://admin:QXqzybmY39mXjJQ5@cluster0.mljvh.mongodb.net/simplefantasy?authSource=admin"
+URI = "mongodb+srv://admin:s4xWApCtAtFyjUA8@cluster0.mljvh.mongodb.net/simplefantasy?retryWrites=true&w=majority"
 DATABASE = None
 
-##client = pymongo.MongoClient(URI)
-##DATABASE = client["simplefantasy"]
+client = pymongo.MongoClient(URI)
+DATABASE = client["simplefantasy"]
 
 conn = http.client.HTTPSConnection("api.sportradar.us")
 
@@ -39,8 +42,12 @@ tourneys = tourneys.rename(
     columns={"id": "event_id", "name": "Event", "start_date": "Start_Date", "end_date": "End_Date"})
 tourneys = tourneys[["event_id", "Event", "Start_Date", "End_Date"]]
 tourneys['Course'] = venues['Course'].values
+tourneys['Start_Date'] = pd.to_datetime(tourneys['Start_Date'])
+mask = (tourneys['Start_Date'] > datetime.now()) & (tourneys['Start_Date'] <= datetime.now() + timedelta(days=7))
+tourneys = tourneys.loc[mask]
 
 contests = tourneys[["event_id", "Event"]]
+contests.reset_index(drop=True, inplace=True)
 contests['Sport'] = str('PGA')
 contests['Buy_In'] = int(5)
 contests["Max_Entries"] = int(1000)
@@ -64,3 +71,14 @@ contests3['Contest_Id'] = contests3.apply(lambda row: uuid.uuid4().hex, axis=1)
 frames = [contests, contests2, contests3]
 
 contestsall = pd.concat(frames)
+
+for index, row in contestsall.iterrows():
+    DATABASE["contests"].update_one({'Contest_Id': row['Contest_Id']},
+                                    {'$set': {"_id": row['Contest_Id'],
+                                        "Contest_Id": row['Contest_Id'],
+                                        "Sport": row['Sport'],
+                                        "Contest_Name": row['Contest_Name'],
+                                        "Event_ID": row['event_id'],
+                                        "Buy_In": row['Buy_In'],
+                                        "Max_Entires": row['Max_Entries']}},
+                                    upsert=True)
