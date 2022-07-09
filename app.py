@@ -37,7 +37,7 @@ def home_page():
 def upcoming_lineups():
     username = session['username']
     upcoming = Lineup.get_contests_username(username)
-    if upcoming is None:
+    if len(upcoming) == 0:
         text = "You Do Not Have Any Upcoming Contests"
         balance = User.get_balance(session['username'])
         return render_template("upcoming.html", text=text, username=session['username'], balance=balance,
