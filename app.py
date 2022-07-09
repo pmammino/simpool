@@ -37,13 +37,16 @@ def home_page():
 def upcoming_lineups():
     username = session['username']
     upcoming = Lineup.get_contests_username(username)
-    upcoming = list(filter(lambda x: x.Start_Date > datetime.date.today(), upcoming))
-    upcoming = sorted(upcoming,key=operator.attrgetter('Start_Date'))
-    balance = User.get_balance(session['username'])
-    if len(upcoming) == 0:
+    if upcoming is None:
         text = "You Do Not Have Any Upcoming Contests"
+        balance = User.get_balance(session['username'])
+        return render_template("upcoming.html", text=text, username=session['username'], balance=balance,
+                               upcoming=upcoming)
     else:
         text = ""
+        upcoming = list(filter(lambda x: x.Start_Date > datetime.date.today(), upcoming))
+        upcoming = sorted(upcoming, key=operator.attrgetter('Start_Date'))
+        balance = User.get_balance(session['username'])
     if session.get('email') is None:        
         return render_template("nologin.html", type="Upcoming")
     else:

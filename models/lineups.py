@@ -82,7 +82,10 @@ class Lineup(object):
     @classmethod
     def get_contests_username(cls, username):
         lineups = Database.find(collection="lineups_golf", query={"Username": username})
-        return [cls(**lineup) for lineup in lineups]
+        if lineups is None:
+            return None
+        else:
+            return [cls(**lineup) for lineup in lineups]
 
     @classmethod
     def get_lineup(cls, _id):

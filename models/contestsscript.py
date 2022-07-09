@@ -43,6 +43,12 @@ tourneys = tourneys.rename(
 tourneys = tourneys[["event_id", "Event", "Start_Date", "End_Date"]]
 tourneys['Course'] = venues['Course'].values
 tourneys['Start_Date'] = pd.to_datetime(tourneys['Start_Date'])
+tourneys['End_Date'] = pd.to_datetime(tourneys['End_Date'])
+
+DATABASE["events_golf"].insert_many(tourneys.to_dict('records'))
+
+
+
 mask = (tourneys['Start_Date'] > datetime.now()) & (tourneys['Start_Date'] <= datetime.now() + timedelta(days=7))
 tourneys = tourneys.loc[mask]
 
