@@ -49,7 +49,7 @@ DATABASE["events_golf"].insert_many(tourneys.to_dict('records'))
 
 
 
-mask = (tourneys['Start_Date'] > datetime.now()) & (tourneys['Start_Date'] <= datetime.now() + timedelta(days=7))
+mask = (tourneys['Start_Date'] > datetime.now()) & (tourneys['Start_Date'] <= datetime.now() + timedelta(days=21))
 tourneys = tourneys.loc[mask]
 
 contests = tourneys[["event_id", "Event"]]
